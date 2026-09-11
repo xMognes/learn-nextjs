@@ -1,0 +1,20 @@
+// use prisma-next
+// Contract inferred from the live database schema. Edit as needed, then run `prisma contract emit`.
+
+model Post {
+  id        Char(36)    @id(map: "Post_pkey")
+  authorId  Char(36)
+  content   String?
+  createdAt Timestamptz @default(now())
+  title     String
+  updatedAt Timestamptz
+}
+
+model User {
+  id        Char(36)    @id(map: "User_pkey")
+  createdAt Timestamptz @default(now())
+  email     String      @unique(map: "User_email_key")
+  name      String?
+  updatedAt Timestamptz
+  username  String?
+}
