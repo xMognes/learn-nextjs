@@ -2,31 +2,39 @@ import Form from "next/form";
 
 export default function Contact() {
   return (
-    <div className="flex flex-1 justify-center items-center">
-      <div>
-        <h1 className="text-3xl font-bold">Contact</h1>
-        <Form className="flex flex-col mt-5" action="/form">
-          <input className="border px-3 mb-3" name="name" placeholder="Name" />
+    <div className="content">
+      <h1 className="page-title">Contact</h1>
+      <Form className="flex flex-col gap-2 mt-5" action="/form">
+        <div className="flex gap-3">
           <input
-            className="border px-3 mb-3"
+            className="form-input"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <input
+            className="form-input"
             name="surname"
             placeholder="Surname"
+            required
           />
-          <input
-            className="border px-3 mb-3"
-            name="email"
-            placeholder="E-mail"
-          />
-          <textarea
-            className="border px-3 mb-3"
-            name="message"
-            placeholder="Message"
-          />
-          <button className="border-1 cursor-pointer" type="submit">
-            Submit
-          </button>
-        </Form>
-      </div>
+        </div>
+        <input
+          className="form-input"
+          name="email"
+          placeholder="E-mail"
+          required
+        />
+        <textarea
+          className="form-input"
+          name="message"
+          placeholder="Message"
+          required
+        />
+        <button className="form-button mt-2 ml-auto" type="submit">
+          Submit
+        </button>
+      </Form>
     </div>
   );
 }
