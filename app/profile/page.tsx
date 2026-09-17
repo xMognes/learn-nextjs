@@ -4,8 +4,8 @@ export default async function Profile() {
   const session = await getSession();
 
   return (
-    <div>
-      <p>{session.userId}</p>
+    <div className="content">
+      <h1 className="page-title">Welcome {session.userId}</h1>
     </div>
   );
 }
