@@ -1,10 +1,10 @@
-import Box from "../components/Box";
+import Box from "../_components/Box";
 import Image from "next/image";
 
-export default function Projects() {
+export default function Blog() {
   return (
     <div className="content">
-      <h1 className="page-title">Projects</h1>
+      <h1 className="page-title">Blog</h1>
       <p className="max-w-lg">
         Here you can showcase your best work. Each project should include a
         brief description, the technologies used, and any notable achievements.

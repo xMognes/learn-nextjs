@@ -1,11 +1,11 @@
 "use server";
 
 import * as v from "valibot";
-import { FormState, SignupFormSchema } from "../lib/definitions"
+import { FormState, SignupFormSchema } from "../_lib/definitions"
 import bcrypt from "bcrypt";
 import { db } from "@/src/prisma/db";
 import { getIronSession } from "iron-session";
-import { defaultSession, SessionData, sessionOptions } from "../lib/sessions";
+import { defaultSession, SessionData, sessionOptions } from "../_lib/sessions";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 

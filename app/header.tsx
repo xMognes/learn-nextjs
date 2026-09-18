@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSession } from "./actions/auth";
+import { getSession } from "./(website)/_actions/auth";
 
 export default async function PageHeader() {
   const session = await getSession();

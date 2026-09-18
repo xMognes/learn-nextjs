@@ -1,4 +1,4 @@
-import { getSession } from "../actions/auth";
+import { getSession } from "../_actions/auth";
 
 export default async function Profile() {
   const session = await getSession();
