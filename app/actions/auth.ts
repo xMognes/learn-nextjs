@@ -65,7 +65,7 @@ export async function login(prevState: FormState | undefined, formData: FormData
     }
 
     const {email, password} = validatedFields.output;
-    const user = await db.orm.public.User.select("id", "password").where({ email: email }).first()
+    const user = await db.orm.public.User.select("id", "password", "role").where({ email: email }).first()
     
     if(!user) {
         return {
@@ -82,10 +82,11 @@ export async function login(prevState: FormState | undefined, formData: FormData
 
     const session = await getSession();
     session.userId = String(user.id)
+    session.userRole = user.role
     session.isLoggedIn = true
     await session.save();
 
-    redirect("/profile");
+    redirect(user.role === "ADMIN" ? "/dashboard" : "/profile");
 }
 
 export async function logout() {

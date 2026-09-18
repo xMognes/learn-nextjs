@@ -5,6 +5,7 @@ const secretKey = process.env.SESSION_SECRET;
 
 export interface SessionData {
     userId?: string,
+    userRole?: string,
     isLoggedIn: boolean
 }
 
