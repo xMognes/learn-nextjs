@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <div className="max-w-xs flex-1 px-3 bg-white">
+    <div className="max-w-xs flex-1 px-3 bg-white shadow-lg">
       <h1 className="text-gray-950 font-bold text-2xl my-5">
         <Link href="/dashboard">Ömer Uysal</Link>
       </h1>
@@ -26,6 +26,11 @@ export default function Sidebar() {
           <li>
             <Link className="text-gray-900" href="/dashboard/site/projects">
               Projects
+            </Link>
+          </li>
+          <li>
+            <Link className="text-gray-900" href="/dashboard/site/contact">
+              Contact
             </Link>
           </li>
         </ul>

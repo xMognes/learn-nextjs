@@ -1,16 +1,32 @@
 // use prisma-8
 // Contract inferred from the live database schema. Edit as needed, then run `prisma contract emit`.
-
 enum Role {
   USER
   ADMIN
 }
 
+enum PageType {
+  home
+  blog
+  about
+  contact
+  projects
+}
+
 model User {
-  id        Int         @id @default(autoincrement())
-  email     String      @unique
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
   password  String
-  role      Role        @default(USER)
-  createdAt DateTime    @default(now())
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+}
+
+model Page {
+  id        Int       @id @default(autoincrement())
+  page      PageType  @unique
+  title     String
+  text      String
+  createdAt DateTime  @default(now())
   updatedAt DateTime?
 }

@@ -1,0 +1,15 @@
+@import "tailwindcss" source(none);
+
+@source "../dashboard";
+
+body {
+  color: var(--color-gray-800);
+}
+
+@utility form-input {
+  @apply py-2 px-3 rounded-md border-2 border-gray-200;
+}
+
+@utility form-button {
+  @apply py-2 px-4 rounded-md bg-gray-600 text-gray-100 border-2 cursor-pointer hover:bg-gray-100 hover:text-gray-600 hover:border-gray-600;
+}
