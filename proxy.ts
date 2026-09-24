@@ -8,7 +8,6 @@ const publicRoutes = ["/login", "/signup"];
 export default async function proxy(req: NextRequest) {
   // 2. Check if the current route is protected or public
   const path = req.nextUrl.pathname;
-  console.log("Path", path);
   const isProtectedRoute = protectedRoutes.some(
     (route) => path === route || path.startsWith(`${route}/`),
   );
@@ -19,7 +18,6 @@ export default async function proxy(req: NextRequest) {
 
   // 4. Redirect to /login if the user is not authenticated
   if (isProtectedRoute) {
-    console.log("UserRole", session.userRole);
     if (session?.userId) {
       if (
         session.userRole === "USER" &&

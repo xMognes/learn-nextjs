@@ -20,7 +20,7 @@ export default function PageForm({ page }: { page: PageData | null }) {
 
         {state?.errors?.nested?.title && <p>{state.errors.nested.title}</p>}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-2">
         <label htmlFor="text">Text</label>
         <textarea
           className="form-input"
@@ -30,7 +30,18 @@ export default function PageForm({ page }: { page: PageData | null }) {
         ></textarea>
         {state?.errors?.nested?.text && <p>{state.errors.nested.text}</p>}
       </div>
-      <input type="hidden" name="page" value="home" />
+      <div className="flex flex-col">
+        <label htmlFor="image">Image</label>
+        <input
+          className="form-input"
+          type="file"
+          name="image"
+          id="image"
+          accept="image/jpeg,image/png,image/webp"
+        />
+        {state?.errors?.nested?.image && <p>{state.errors.nested.image}</p>}
+      </div>
+      <input type="hidden" name="page" value={page?.page} />
       <button
         className="block ml-auto mt-3 form-button"
         type="submit"
