@@ -4,7 +4,13 @@ import { useActionState } from "react";
 import { update } from "../../_lib/Page/actions";
 import { PageData } from "../../_lib/Page/definitions";
 
-export default function PageForm({ page }: { page: PageData | null }) {
+export default function PageForm({
+  page,
+  alias,
+}: {
+  page: PageData | null;
+  alias: string;
+}) {
   const [state, formAction, isPending] = useActionState(update, undefined);
   return (
     <form action={formAction}>
@@ -41,7 +47,7 @@ export default function PageForm({ page }: { page: PageData | null }) {
         />
         {state?.errors?.nested?.image && <p>{state.errors.nested.image}</p>}
       </div>
-      <input type="hidden" name="page" value={page?.page} />
+      <input type="hidden" name="page" value={alias} />
       <button
         className="block ml-auto mt-3 form-button"
         type="submit"

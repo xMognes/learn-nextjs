@@ -13,7 +13,7 @@ export default async function SiteAbout() {
       <h1 className="mb-5 text-2xl">
         Edit Page: <u>About</u>
       </h1>
-      <PageForm page={page} />
+      <PageForm page={page} alias="about" />
     </>
   );
 }

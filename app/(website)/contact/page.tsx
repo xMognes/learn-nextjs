@@ -1,9 +1,15 @@
 import Form from "next/form";
+import { db } from "@/src/prisma/db";
 
-export default function Contact() {
+export default async function Contact() {
+  const pageData = await db.orm.public.Page.where({
+    page: "contact",
+  }).first();
+
   return (
     <div className="content">
-      <h1 className="page-title">Contact</h1>
+      <h1 className="page-title">{pageData?.title}</h1>
+      <p className="max-w-lg">{pageData?.text}</p>
       <Form className="flex flex-col gap-2 mt-5" action="/form">
         <div className="flex gap-3">
           <input

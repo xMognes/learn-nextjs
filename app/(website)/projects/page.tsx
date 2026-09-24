@@ -1,15 +1,16 @@
 import Box from "../_components/Box";
 import Image from "next/image";
+import { db } from "@/src/prisma/db";
 
-export default function Projects() {
+export default async function Projects() {
+  const pageData = await db.orm.public.Page.where({
+    page: "projects",
+  }).first();
+
   return (
     <div className="content">
-      <h1 className="page-title">Projects</h1>
-      <p className="max-w-lg">
-        Here you can showcase your best work. Each project should include a
-        brief description, the technologies used, and any notable achievements.
-        This helps potential clients or employers understand your capabilities.
-      </p>
+      <h1 className="page-title">{pageData?.title}</h1>
+      <p className="max-w-lg">{pageData?.text}</p>
       <div className="mt-4">
         <Box>
           <Image

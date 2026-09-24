@@ -15,7 +15,7 @@ export default async function SiteHome() {
       <h1 className="mb-5 text-2xl">
         Edit Page: <u>Home</u>
       </h1>
-      <PageForm page={page} />
+      <PageForm page={page} alias="home" />
     </>
   );
 }
