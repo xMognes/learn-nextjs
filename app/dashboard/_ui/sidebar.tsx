@@ -9,6 +9,14 @@ export default function Sidebar() {
       <nav>
         <ul>
           <li>
+            <Link
+              className="text-gray-900"
+              href="/dashboard/content-management"
+            >
+              Content Management
+            </Link>
+          </li>
+          <li>
             <Link className="text-gray-900" href="/dashboard/site/home">
               Home
             </Link>

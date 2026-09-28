@@ -47,6 +47,7 @@ export function formParse(formData: FormData) {
 }
 
 export type FormState = {
+  success?: boolean;
   errors?: {
     nested?: {
       page?: string[];
@@ -60,5 +61,6 @@ export type FormState = {
 export type PageData = {
   title: string;
   text: string;
-  page: string;
 };
+
+export type hrefType = "home" | "about" | "projects" | "blog" | "contact";

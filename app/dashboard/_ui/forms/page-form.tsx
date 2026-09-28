@@ -1,17 +1,26 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { update } from "../../_lib/Page/actions";
-import { PageData } from "../../_lib/Page/definitions";
+import { hrefType, PageData } from "../../_lib/Page/definitions";
 
 export default function PageForm({
   page,
   alias,
+  onSaved,
 }: {
   page: PageData | null;
-  alias: string;
+  alias: hrefType;
+  onSaved?: (page: hrefType) => void;
 }) {
   const [state, formAction, isPending] = useActionState(update, undefined);
+
+  useEffect(() => {
+    if (state?.success) {
+      onSaved?.(alias);
+    }
+  }, [state, alias, onSaved]);
+
   return (
     <form action={formAction}>
       <div className="flex flex-col mb-2">

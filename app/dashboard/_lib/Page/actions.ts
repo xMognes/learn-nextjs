@@ -2,11 +2,26 @@
 
 import { db } from "@/src/prisma/db";
 import * as v from "valibot";
-import { FormSchema, FormState, formParse } from "./definitions";
+import {
+  hrefType,
+  FormSchema,
+  FormState,
+  formParse,
+  PageData,
+} from "./definitions";
 import { refresh } from "next/cache";
 import path from "path";
 import fs from "fs/promises";
 import crypto from "crypto";
+
+export async function getData(href: hrefType): Promise<PageData | null> {
+  const data = await db.orm.public.Page.select("title", "text")
+    .where({
+      page: href,
+    })
+    .first();
+  return data;
+}
 
 export async function update(
   prevState: FormState | undefined,
@@ -67,6 +82,7 @@ export async function update(
   }
 
   refresh();
+  return { success: true };
 }
 
 async function uploadFile(file: File): Promise<string> {
