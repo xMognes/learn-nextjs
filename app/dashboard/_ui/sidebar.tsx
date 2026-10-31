@@ -17,28 +17,13 @@ export default function Sidebar() {
             </Link>
           </li>
           <li>
-            <Link className="text-gray-900" href="/dashboard/site/home">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className="text-gray-900" href="/dashboard/site/about">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link className="text-gray-900" href="/dashboard/site/blog">
+            <Link className="text-gray-900" href="/dashboard/blog">
               Blog
             </Link>
           </li>
           <li>
-            <Link className="text-gray-900" href="/dashboard/site/projects">
+            <Link className="text-gray-900" href="/dashboard/projects">
               Projects
-            </Link>
-          </li>
-          <li>
-            <Link className="text-gray-900" href="/dashboard/site/contact">
-              Contact
             </Link>
           </li>
         </ul>

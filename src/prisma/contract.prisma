@@ -31,3 +31,12 @@ model Page {
   createdAt DateTime  @default(now())
   updatedAt DateTime?
 }
+
+model Project {
+  id        Int       @id @default(autoincrement())
+  title     String
+  text      String
+  image     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+}
