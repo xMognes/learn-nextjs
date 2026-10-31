@@ -6,6 +6,7 @@ import { db } from "@/src/prisma/db";
 import fs from "fs/promises";
 import path from "path";
 import { redirect } from "next/navigation";
+import { deleteProject } from "./services";
 
 export async function create(
   state: FormState | undefined,
@@ -88,6 +89,12 @@ export async function update(
     updatedAt: Temporal.Now.instant(),
     image: fileName,
   });
+
+  redirect("/dashboard/projects");
+}
+
+export async function remove(projectId: number): Promise<void> {
+  await deleteProject(projectId);
 
   redirect("/dashboard/projects");
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { db } from "@/src/prisma/db";
 import Image from "next/image";
+import { remove } from "@/app/dashboard/_lib/Project/actions";
+import Form from "next/form";
 
 export default async function Projects() {
   const projects = await db.orm.public.Project.all();
@@ -42,6 +44,9 @@ export default async function Projects() {
                   <Link href={`/dashboard/projects/delete/${project.id}`}>
                     Delete
                   </Link>
+                  <Form action={remove.bind(null, project.id)}>
+                    <button type="submit">Delete</button>
+                  </Form>
                 </td>
               </tr>
             ))}
